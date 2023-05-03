@@ -1,0 +1,22 @@
+header {
+    text-align: center;
+    font-size: 5em;
+}
+
+canvas {
+    display: inline;
+}
+#score {
+    text-align: center;
+    font-size: 2.5em;
+}
+#snakeboard {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+    top: 50%;
+    bottom: 50%;
+}
