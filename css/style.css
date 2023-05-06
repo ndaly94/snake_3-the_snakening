@@ -20,3 +20,12 @@ canvas {
     top: 50%;
     bottom: 50%;
 }
+body {
+    background-color: blueviolet;
+}
+
+footer {
+    position: absolute;
+    bottom:0px;
+    margin: 0 auto;
+}
