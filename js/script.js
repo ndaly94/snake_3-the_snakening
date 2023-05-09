@@ -1,3 +1,7 @@
+// add modal and add high score board. add ability to enter name for players
+// add a snake logo to the top of the game
+// add a drop down menu for difficuluty (change speed based on difficulty)
+
 // constants
 const board_border = 'black';
 const board_background = 'white';
