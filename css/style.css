@@ -73,9 +73,12 @@ ul li:hover ul.dropdown {
 }
 
 #snakeLogo {
-    position: relative;
-    margin: 0 auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     background-color: blueviolet;
     width: 10%;
     height: 10%;
+    border-radius: 10em;
 }
+
