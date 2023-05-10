@@ -55,8 +55,11 @@ ul li a {
     text-align: center;
     font-size: 20px;
 }
-
 ul li ul.dropdown li {
+    display: block;
+    }   
+
+ul li ul.dropdown {
     width: 100%;
     background: #22438C;
     position: absolute;
