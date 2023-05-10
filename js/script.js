@@ -31,12 +31,13 @@ const snakeboard_ctx = snakeboard.getContext("2d");
 //starts the game
 init();
 
-gen_food();
+render_food();
 
 document.addEventListener('keydown', change_direction);
 //set Timout functions to create a pause between moves so the snake does not "jump" from place to place on the board but instead move incrementally.
 function init() {
-   if (has_game_ended()) return;
+   if (has_game_ended())
+   return;
 
     changing_direction = false;
     setTimeout(function onTick(){
@@ -92,16 +93,17 @@ function move_snake() {
     //add new head point to snake based on position
     snake.unshift(head);
     const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
-   //when we eat food we need to update the score and score display then generate new food 
+   //when we eat food we need to update the score and score display then rendererate new food 
     if (has_eaten_food) {
         score += 10;
         document.getElementById('score').innerHTML = `Score: ${score}`;
-        gen_food();
+        render_food();
     } else {
     //remove the tail from last position    
     snake.pop();
     }
-}    
+}
+
 //check if the game is over by hitting itself or if the snake hit a wall.
 function has_game_ended () {
     for(let i = 4; i< snake.length; i++){
@@ -154,12 +156,12 @@ function random_food(min, max){
     return Math.round((Math.random() * (max-min) + min) /20) *20;
 }    
 
-function gen_food(){
+function render_food(){
     food_x= random_food(0, snakeboard.width - 20);
     food_y= random_food(0, snakeboard.height - 20);
     snake.forEach(function has_snake_eaten_food(part) {
         const has_eaten = part.x == food_x && part.y == food_y;
-      //if the food is eaten we run the function to generate new food  
-        if(has_eaten) gen_food();
+      //if the food is eaten we run the function to regenerate new food  
+        if(has_eaten) render_food();
     });    
-}    
+}
