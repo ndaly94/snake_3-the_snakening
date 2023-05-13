@@ -4,16 +4,16 @@
 // constants
 const board_border = 'black';
 const board_background = 'white';
-const snake_col = 'red';
+const snake_color = 'red';
 const snake_border = 'darkred';
 
-//setting a starting point for the snake, each coordinate cooresponds to one piece of the snake, 4 in this case.
+//setting a starting point for the snake, each coordinate cooresponds to one piece of the snake, 4 in this case. I need to change these to EMs
 let snake = [ {x: 200, y: 200}, {x: 190, y: 200}, {x:180, y:200}, {x: 170, y:200}, {x:160, y:200},];
 
 //initialize score at 0
 let score = 0;
 // stops snake from changing direction
-let changing_direction= false;
+let direction_change= false;
 
 //dx is horizontal velocity dy is vertical velocity
 let food_x;
@@ -38,7 +38,7 @@ function init() {
    if (has_game_ended())
    return;
 
-    changing_direction = false;
+    direction_change = false;
     setTimeout(function onTick(){
     clearBoard();
     renderFood();
@@ -77,7 +77,7 @@ function renderFood(){
 
 function renderSnakePart(snakePart) {
 //function to style the the snake on canvas
-    snakeboard_ctx.fillStyle= snake_col;
+    snakeboard_ctx.fillStyle= snake_coloror;
     snakeboard_ctx.strokeStyle=snake_border;
     snakeboard_ctx.fillRect(snakePart.x, snakePart.y, 20, 20);
     snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, 20, 20);
@@ -123,8 +123,8 @@ function change_direction(event) {
     const UP_KEY = 38;
     const DOWN_KEY = 40;
 // stops snake from reversing
-    if(changing_direction) return;
-    changing_direction=true;
+    if(direction_change) return;
+    direction_change=true;
     const keypressed = event.keyCode;
     const goingUp = dy === -20;
     const goingDown = dy === -20;
