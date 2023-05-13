@@ -3,7 +3,7 @@
 
 ## it is created primarily through javascript and HTML
 
-### HTML uses canvas to create the board
+### HTML uses canvas to create the board. The user controls the snake with the arrow keys. JS is used to initialize the snakes movement. It is also continually checking to see if the snake has eaten the fruit which encompases its 'score'. The board automatically renders a new piece of fruit any time the snake eats the piece that currently occupys its board. 
 
 ### I am in the process of making it responsive to screen size
 
