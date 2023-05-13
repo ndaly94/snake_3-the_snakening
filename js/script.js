@@ -7,19 +7,19 @@ const board_background = 'white';
 const snake_color = 'red';
 const snake_border = 'darkred';
 
-//setting a starting point for the snake, each coordinate cooresponds to one piece of the snake, 4 in this case. I need to change these to EMs
+//setting a starting point for the snake, each coordinate cooresponds to one piece of the snake, 4 in this case. I need to change these to EM
 let snake = [ {x: 200, y: 200}, {x: 190, y: 200}, {x:180, y:200}, {x: 170, y:200}, {x:160, y:200},];
 
 //initialize score at 0
 let score = 0;
 // stops snake from changing direction
-let direction_change= false;
+let changing_direction= false;
 
-//dx is horizontal velocity dy is vertical velocity
+//mx is horizontal velocity my is vertical velocity
 let food_x;
 let food_y;
-let dx = 20;
-let dy = 0;
+let mx = 20;
+let my = 0;
 
 
 //this grabs the board using the canvas element in the HTML
@@ -38,7 +38,7 @@ function init() {
    if (has_game_ended())
    return;
 
-    direction_change = false;
+    changing_direction = false;
     setTimeout(function onTick(){
     clearBoard();
     renderFood();
@@ -77,18 +77,18 @@ function renderFood(){
 
 function renderSnakePart(snakePart) {
 //function to style the the snake on canvas
-    snakeboard_ctx.fillStyle= snake_coloror;
-    snakeboard_ctx.strokeStyle=snake_border;
+    snakeboard_ctx.fillStyle= snake_color;
+    snakeboard_ctx.strokeStyle= snake_border;
     snakeboard_ctx.fillRect(snakePart.x, snakePart.y, 20, 20);
     snakeboard_ctx.strokeRect(snakePart.x, snakePart.y, 20, 20);
 }    
 
-//the function that lets the snake move horizontally and vertically, dx and dy determine those directions
+//the function that lets the snake move horizontally and vertically, mx and my determine those directions
 //we are basically removing the head and moving it foward incrementally
-//dx is ythe horizontal velocity
+//mx is ythe horizontal velocity
 // the if-else is in place to check if the snake has eaten, in that case the snake moves one but the tail is not cut off.
 function move_snake() {
-    const head = {x: snake[0].x + dx, y: snake[0].y +dy};
+    const head = {x: snake[0].x + mx, y: snake[0].y +my};
     //add new head point to snake based on position
     snake.unshift(head);
     const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
@@ -123,30 +123,30 @@ function change_direction(event) {
     const UP_KEY = 38;
     const DOWN_KEY = 40;
 // stops snake from reversing
-    if(direction_change) return;
-    direction_change=true;
+    if(changing_direction) return;
+    changing_direction=true;
     const keypressed = event.keyCode;
-    const goingUp = dy === -20;
-    const goingDown = dy === -20;
-    const goingRight = dx === -20;
-    const goingLeft = dx === 20;
-//checks to make sure we are not already traveling in oposite direction. prevents snake from going in reverse (kill itself)    
+    const goingUp = my === -20;
+    const goingDown = my === -20;
+    const goingRight = mx === -20;
+    const goingLeft = mx === 20;
+//checks to make sure we are not alreamy traveling in oposite direction. prevents snake from going in reverse (kill itself)    
     if (keypressed === LEFT_KEY && !goingRight) {
-        dx = -20;
-        dy = 0;
+        mx = -20;
+        my = 0;
     }    
 
     if (keypressed === UP_KEY && !goingDown) {
-        dx=0;
-        dy=-20;
+        mx=0;
+        my=-20;
     }    
     if (keypressed === RIGHT_KEY && !goingLeft){
-        dx=20;
-        dy=0;
+        mx=20;
+        my=0;
     }    
     if (keypressed === DOWN_KEY && !goingUp) {
-        dx = 0;
-        dy = 20;
+        mx = 0;
+        my = 20;
     }    
 }    
 
