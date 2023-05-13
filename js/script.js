@@ -1,5 +1,5 @@
 // add modal and add high score board. add ability to enter name for players - still need to do
-// add a drop down menu for difficuluty (change speed based on difficulty) -- added but not working to liunk out yet
+// add a drop down menu for difficuluty (change speed based on difficulty) -- added
 
 // constants
 const board_border = 'black';
