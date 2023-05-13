@@ -5,4 +5,4 @@
 
 ### HTML uses canvas to create the board
 
-### I am in the process of 
+### I am in the process of making it responsive to screen size
