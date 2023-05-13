@@ -7,11 +7,12 @@ canvas {
     display: inline;
 }
 #score {
+    padding-top: 50px;
     text-align: center;
     font-size: 2.5em;
 }
 canvas {
-    padding-top: 300px;
+    padding-top: 400px;
 }
 #snakeboard {
     position: absolute;
