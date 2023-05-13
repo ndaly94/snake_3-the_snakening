@@ -41,9 +41,9 @@ function init() {
     changing_direction = false;
     setTimeout(function onTick(){
     clearBoard();
-    drawFood();
+    renderFood();
     move_snake();
-    drawSnake();
+    renderSnake();
     //callback to itself so it is always refreshed;
     init();
     }, 100)
@@ -63,19 +63,19 @@ function clearBoard() {
 
 
 //function that prints the snake itself
-function drawSnake() {
-    snake.forEach(drawSnakePart);
+function renderSnake() {
+    snake.forEach(renderSnakePart);
 }    
 
 //create a function to style the food in the voard
-function drawFood(){
+function renderFood(){
     snakeboard_ctx.fillStyle='lightgreen';
     snakeboard_ctx.strokeStyle='darkgreen';
     snakeboard_ctx.fillRect(food_x, food_y, 20, 20);
     snakeboard_ctx.strokeRect(food_x, food_y, 20, 20);
 }
 
-function drawSnakePart(snakePart) {
+function renderSnakePart(snakePart) {
 //function to style the the snake on canvas
     snakeboard_ctx.fillStyle= snake_col;
     snakeboard_ctx.strokeStyle=snake_border;
