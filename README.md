@@ -10,3 +10,5 @@
 ### Use the arrow keys to control the snake. Avoid the walls and eating yourself. Eat as much fruit as you can!
 
 ### wire frame is Snake Wireframe.svg
+
+### Tech Used: HTML CSS JS GIT
